@@ -1,4 +1,4 @@
-FROM kasmweb/debian-bookworm-desktop
+FROM kasmweb/debian-bookworm-desktop:1.14.0
 USER root
 
 ENV HOME /home/kasm-default-profile
