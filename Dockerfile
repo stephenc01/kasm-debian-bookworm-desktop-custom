@@ -8,8 +8,8 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 
-RUN apt remove signal-desktop
-RUN apt remove thunderbird
+RUN dpkg -r signal-desktop
+RUN dpkg -r thunderbird
 RUN wget -q https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get install -f
