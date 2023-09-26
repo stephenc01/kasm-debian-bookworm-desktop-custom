@@ -8,12 +8,15 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 
-RUN dpkg -r signal-desktop
-RUN dpkg -r thunderbird
-RUN wget -q https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb
-RUN dpkg -i packages-microsoft-prod.deb
+RUN apt-get --purge remove signal-desktop -y
+RUN apt-get --purge remove thunderbird -y
+RUN apt-get --purge remove obs-* -y
+RUN apt-get --purge remove vlc* -y
+RUN apt-get --purge remove telegram-desktop -y
+RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell_7.3.7-1.deb_amd64.deb
+RUN dpkg -i powershell_7.3.7-1.deb_amd64.deb
 RUN apt-get install -f
-RUN rm packages-microsoft-prod.deb
+RUN rm powershell_7.3.7-1.deb_amd64.deb
 
 ######### End Customizations ###########
 
