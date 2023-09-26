@@ -7,16 +7,17 @@ ENV INST_SCRIPTS $STARTUPDIR/install
 WORKDIR $HOME
 ######### Customize Container Here ###########
 
-
+#Need to clean up desktop icons
 RUN apt-get --purge remove signal-desktop -y
-RUN apt-get --purge remove thunderbird -y
-RUN apt-get --purge remove obs-* -y
-RUN apt-get --purge remove vlc* -y
-RUN apt-get --purge remove telegram-desktop -y
+    && apt-get --purge remove thunderbird -y
+    && apt-get --purge remove obs-* -y
+    && apt-get --purge remove vlc* -y
+
+#Prob should use the repo. but meh.
 RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell_7.3.7-1.deb_amd64.deb
-RUN dpkg -i powershell_7.3.7-1.deb_amd64.deb
-RUN apt-get install -f
-RUN rm powershell_7.3.7-1.deb_amd64.deb
+    && dpkg -i powershell_7.3.7-1.deb_amd64.deb
+    && apt-get install -f
+    && rm powershell_7.3.7-1.deb_amd64.deb
 
 ######### End Customizations ###########
 
