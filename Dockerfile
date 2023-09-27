@@ -19,6 +19,7 @@ RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/po
     && apt-get install -f \
     && rm powershell_7.3.7-1.deb_amd64.deb
 
+RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
