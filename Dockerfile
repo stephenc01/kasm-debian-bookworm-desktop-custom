@@ -8,7 +8,7 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 #Need to clean up desktop icons
-RUN apt update \
+RUN apt-get update -qq \
     && apt-get --purge remove signal-desktop -y \
     && apt-get --purge remove thunderbird -y \
     && apt-get --purge remove obs-* -y \
@@ -20,7 +20,7 @@ RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/po
     && apt-get install -f \
     && rm powershell_7.3.7-1.deb_amd64.deb
 
-RUN apt install flatpak \
+RUN apt-get install -y flatpak \
     && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
     && flatpak install flathub net.devolutions.RDMFree
 
