@@ -19,6 +19,10 @@ RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/po
     && apt-get install -f \
     && rm powershell_7.3.7-1.deb_amd64.deb
 
+RUN wget -q https://cdn.devolutions.net/download/Linux/RDM/2023.2.2.5/RemoteDesktopManager_2023.2.2.5_amd64.deb \
+    && dpkg -i RemoteDesktopManager_2023.2.2.5_amd64.deb \
+    && rm RemoteDesktopManager_2023.2.2.5_amd64.deb
+
 # RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade
 ######### End Customizations ###########
 
