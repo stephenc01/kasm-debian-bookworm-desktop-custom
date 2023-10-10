@@ -8,7 +8,8 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 #Need to clean up desktop icons
-RUN apt-get --purge remove signal-desktop -y \
+RUN apt update \
+    && apt-get --purge remove signal-desktop -y \
     && apt-get --purge remove thunderbird -y \
     && apt-get --purge remove obs-* -y \
     && apt-get --purge remove vlc* -y
@@ -23,7 +24,7 @@ RUN apt install flatpak \
     && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
     && flatpak install flathub net.devolutions.RDMFree
 
-RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade
+RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade && apt clean
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
