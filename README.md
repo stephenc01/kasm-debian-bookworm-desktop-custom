@@ -26,6 +26,7 @@ RUN apt-get --purge remove signal-desktop -y \
     && apt-get --purge remove thunderbird -y \
     && apt-get --purge remove obs-* -y \
     && apt-get --purge remove vlc* -y
+```
 
 ## Installing PowerShell
 
@@ -36,3 +37,4 @@ RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/po
     && dpkg -i powershell_7.3.7-1.deb_amd64.deb \
     && apt-get install -f \
     && rm powershell_7.3.7-1.deb_amd64.deb
+```
