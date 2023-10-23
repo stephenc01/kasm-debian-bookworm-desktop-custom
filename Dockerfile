@@ -20,10 +20,10 @@ RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/po
     && apt-get install -f \
     && rm powershell_7.3.7-1.deb_amd64.deb
 
-RUN apt-get install -y flatpak \
-    && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
-    && flatpak install flathub org.gnome.Platform \
-    && flatpak install flathub net.devolutions.RDMFree
+#RUN apt-get install -y flatpak \
+#    && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
+#    && flatpak install flathub org.gnome.Platform \
+#    && flatpak install flathub net.devolutions.RDMFree
 
 RUN dpkg -i VMware-Horizon-Client-2306-8.10.0-21964631.x64.deb \
     && apt-get install -f \
