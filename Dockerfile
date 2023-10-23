@@ -25,6 +25,10 @@ RUN apt-get install -y flatpak \
     && flatpak install flathub org.gnome.Platform \
     && flatpak install flathub net.devolutions.RDMFree
 
+RUN dpkg -i VMware-Horizon-Client-2306-8.10.0-21964631.x64.deb \
+    && apt-get install -f \
+    && rm VMware-Horizon-Client-2306-8.10.0-21964631.x64.deb
+
 RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade && apt clean
 ######### End Customizations ###########
 
