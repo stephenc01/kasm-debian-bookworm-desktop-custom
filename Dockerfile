@@ -30,7 +30,7 @@ RUN dpkg -i /VMware-Horizon-Client-2306-8.10.0-21964631.x64.deb \
     && apt-get install -f \
     && rm /VMware-Horizon-Client-2306-8.10.0-21964631.x64.deb
 
-RUN apt autoremove && apt-get -qy update && apt-get -qy upgrade && apt clean
+RUN apt-get autoremove -y && apt-get update -qy && apt-get upgrade -qy && apt-get clean
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
